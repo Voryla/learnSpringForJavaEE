@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--    无参bean创建，常用-->
+    <bean id="user" class="com.zwk.learn_ioc.User"></bean>
+    <!--    静态工厂创建，只是调用静态工厂的静态方法，并不会创建该工厂的实例。不常使用-->
+    <bean id="userBeanForStaticFactory" class="com.zwk.learn_ioc.UserStaticFactory" factory-method="getUser"></bean>
+    <!--    实例工厂创建，首先创建-->
+    <bean id="userFactoryBean" class="com.zwk.learn_ioc.UserFactory"></bean>
+    <bean id="userBeanForFactory" factory-bean="userFactoryBean" factory-method="getUser"></bean>
+</beans>
